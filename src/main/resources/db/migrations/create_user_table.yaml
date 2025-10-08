@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+     id: 3
+     author: Vlad
+     preConditions:
+       onFail: MARK_RAN
+       preConditions:
+         - not:
+             tableExists:
+               tableName: user
+     changes:
+       - createTable:
+           tableName: user
+           columns:
+             - column:
+                 name: id
+                 type: BIGSERIAL
+                 constraints:
+                   primaryKey: true
+                   nullable: false
+             - column:
+                 name: password
+                 type: VARCHAR(24)
+                 constraints:
+                   nullable: false
+             - column:
+                 name: first_name
+                 type: VARCHAR(30)
+                 constraints:
+                   nullable: false
+             - column:
+                 name: last_name
+                 type: VARCHAR(30)
+                 constraints:
+                   nullable: false
+             - column:
+                 name: login
+                 type: VARCHAR(20)
+                 constraints:
+                   nullable: false
+                   unique: true
+             - column:
+                 name: personal_email
+                 type: VARCHAR(50)
+                 constraints:
+                   unique: true
+             - column:
+                 name: birth_date
+                 type: DATE
+             - column:
+                 name: created_on
+                 type: TIMESTAMP WITHOUT TIME ZONE
+                 defaultValueComputed: CURRENT_TIMESTAMP
+             - column:
+                 name: last_updated_on
+                 type: TIMESTAMP WITHOUT TIME ZONE
