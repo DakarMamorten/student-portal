@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-student-table
+      author: vlad
+      changes:
+        - createTable:
+            tableName: student
+            columns:
+              - column: { name: id, type: BIGINT, constraints: { nullable: false } }
+              - column: { name: agreement_number, type: VARCHAR(20) }
+              - column: { name: agreement_signed, type: BOOLEAN, defaultValueBoolean: false }
+              - column: { name: enrollment_date, type: DATE }
+              - column: { name: graduation_date, type: DATE }
+              - column: { name: scholarship, type: BOOLEAN, defaultValueBoolean: false }
+              - column: { name: avg_score, type: "NUMERIC(4,2)" }
+              - column: { name: current_semester, type: SMALLINT }
+              - column: { name: mode_of_study, type: SMALLINT }
+              - column: { name: enrollment_year, type: SMALLINT }
+              - column: { name: specialization, type: INTEGER }
+              - column: { name: enroll_semester, type: VARCHAR(10) }
+              - column: { name: faculty, type: VARCHAR(100) }
+        - addPrimaryKey: { tableName: student, columnNames: id, constraintName: pk_student }
+        - addForeignKeyConstraint: { baseTableName: student, baseColumnNames: id, referencedTableName: user, referencedColumnNames: id, constraintName: fk_student_user, onDelete: CASCADE, onUpdate: CASCADE }
+
+      rollback:
+        - dropForeignKeyConstraint: { baseTableName: student, constraintName: fk_student_user }
+        - dropPrimaryKey: { tableName: student, constraintName: pk_student }
+        - dropTable: { tableName: student }

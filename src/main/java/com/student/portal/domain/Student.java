@@ -6,10 +6,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "student")
+@DiscriminatorValue("STUDENT")
+@PrimaryKeyJoinColumn(name = "id")
 @Getter
 @Setter
 public class Student extends User{
@@ -21,10 +22,10 @@ public class Student extends User{
     private Boolean agreementSigned;
 
     @Column(name = "enrollment_date")
-    private LocalDate enrollmentDate;
+    private Integer enrollmentDate;
 
     @Column(name = "graduation_date")
-    private LocalDate graduationDate;
+    private Integer graduationDate;
 
     @Column(name = "scholarship", nullable = false)
     private boolean scholarship;
@@ -32,11 +33,17 @@ public class Student extends User{
     @Column(name = "avg_score", precision = 4, scale = 2)
     private BigDecimal avgScore;
 
-    @Column(name = "enrollment_year")
-    private LocalDate enrollmentYear;
+    @Column(name = "mode_of_study")
+    private Integer modeOfStudy;
 
     @Column(name = "current_semester")
     private Integer currentSemester;
+
+    @Column(name = "enrollment_year")
+    private Integer enrollmentYear;
+
+    @Column(name = "specialization")
+    private Integer specialization;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "enroll_semester", length = 10)

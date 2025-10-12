@@ -1,22 +1,21 @@
 databaseChangeLog:
   - changeSet:
       id: insert-teachers
-      author: Vlad
+      author: vlad
+      preConditions:
+        onFail: HALT
+        preConditions:
+          - tableExists: { tableName: user }
+          - tableExists: { tableName: teacher }
       changes:
         - insert:
             tableName: teacher
             columns:
-              - column: { name: degree,          value: "PhD" }
-              - column: { name: employmentType,  value: "FULL_TIME" }
-              - column: { name: hire_date,       valueDate: "2018-09-01" }
-              - column: { name: office_number,   value: "B-203" }
-              - column: { name: title,           value: "Professor" }
+              - column: { name: id, valueComputed: "(SELECT id FROM \"user\" WHERE login = 'teacher01')" }
+              - column: { name: degree, value: "PhD" }
+              - column: { name: title, value: "Professor" }
+              - column: { name: hire_date, valueDate: "2018-09-01" }
+              - column: { name: salary, valueNumeric: 7500.00 }
 
-        - insert:
-            tableName: teacher
-            columns:
-              - column: { name: degree,          value: "MSc" }
-              - column: { name: employmentType,  value: "PART_TIME" }
-              - column: { name: hire_date,       valueDate: "2020-02-15" }
-              - column: { name: office_number,   value: "C-115" }
-              - column: { name: title,           value: "Lecturer" }
+      rollback:
+        - delete: { tableName: teacher, where: "id = (SELECT id FROM \"user\" WHERE login = 'teacher01')" }

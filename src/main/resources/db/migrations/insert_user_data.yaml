@@ -6,18 +6,32 @@ databaseChangeLog:
         - insert:
             tableName: user
             columns:
-              - column: { name: password, value: "dakar123" }
-              - column: { name: first_name, value: "Vlad" }
-              - column: { name: last_name, value: "Paun" }
-              - column: { name: login, value: "dakar" }
-              - column: { name: personal_email, value: "vlad@example.com" }
-              - column: { name: birth_date, valueDate: "1996-03-15" }
+              - column: { name: login, value: "student01" }
+              - column: { name: password, value: "$2a$10$encodedHash01" }
+              - column: { name: first_name, value: "Maria" }
+              - column: { name: last_name, value: "Yurchenko" }
+              - column: { name: personal_email, value: "maria@example.com" }
+              - column: { name: user_type, value: "STUDENT" }
+
         - insert:
             tableName: user
             columns:
-              - column: { name: password, value: "admin123" }
-              - column: { name: first_name, value: "Mariia" }
-              - column: { name: last_name, value: "Yurchenko" }
-              - column: { name: login, value: "admin" }
-              - column: { name: personal_email, value: "mariia@example.com" }
-              - column: { name: birth_date, valueDate: "2000-12-05" }
+              - column: { name: login, value: "teacher01" }
+              - column: { name: password, value: "$2a$10$encodedHash02" }
+              - column: { name: first_name, value: "Vlad" }
+              - column: { name: last_name, value: "Paun" }
+              - column: { name: personal_email, value: "vlad@example.com" }
+              - column: { name: user_type, value: "TEACHER" }
+
+        - insert:
+            tableName: user
+            columns:
+              - column: { name: login, value: "admin01" }
+              - column: { name: password, value: "$2a$10$encodedHash03" }
+              - column: { name: first_name, value: "Serhii" }
+              - column: { name: last_name, value: "Manko" }
+              - column: { name: personal_email, value: "serhii@example.com" }
+              - column: { name: user_type, value: "ADMIN" }
+
+      rollback:
+        - delete: { tableName: user, where: "login IN ('student01','teacher01','admin01')" }

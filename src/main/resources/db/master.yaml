@@ -1,15 +1,8 @@
 databaseChangeLog:
-  - include:
-      file: db/migrations/create_user_table.yaml
-  - include:
-      file: db/migrations/create_student_lite.yaml
-  - include:
-      file: db/migrations/create_teacher_lite.yaml
-  - include:
-      file: db/migrations/student_add_academic_fields.yaml
-  - include:
-      file: db/migrations/insert_user_data.yaml
-  - include:
-      file: db/migrations/insert_student_data.yaml
-  - include:
-      file: db/migrations/insert_teacher_data.yaml
+  - property: { name: objectQuotingStrategy, value: QUOTE_ALL_OBJECTS }
+  - include: { file: db/migrations/create_user_table.yaml }
+  - include: { file: db/migrations/insert_user_data.yaml }
+  - include: { file: db/migrations/create_student_table.yaml }
+  - include: { file: db/migrations/insert_student_data.yaml }
+  - include: { file: db/migrations/create_teacher_table.yaml }
+  - include: { file: db/migrations/insert_teacher_data.yaml }
