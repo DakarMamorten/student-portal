@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-teachers
+      author: Vlad
+      changes:
+        - insert:
+            tableName: teacher
+            columns:
+              - column: { name: degree, value: "Master of Education" }
+              - column: { name: title, value: "Dr hab. inż." }
+              - column: { name: hire_date, valueDate: "2018-09-01" }
+        - insert:
+            tableName: teacher
+            columns:
+              - column: { name: degree, value: "MSc" }
+              - column: { name: title, value: "Mgr inż." }
+              - column: { name: hire_date, valueDate: "2020-02-15" }

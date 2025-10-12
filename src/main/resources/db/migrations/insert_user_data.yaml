@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: Vlad
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column: { name: password, value: "dakar123" }
+              - column: { name: first_name, value: "Vlad" }
+              - column: { name: last_name, value: "Paun" }
+              - column: { name: login, value: "dakar" }
+              - column: { name: personal_email, value: "vlad@example.com" }
+              - column: { name: birth_date, valueDate: "1996-03-15" }
+        - insert:
+            tableName: user
+            columns:
+              - column: { name: password, value: "admin123" }
+              - column: { name: first_name, value: "Mariia" }
+              - column: { name: last_name, value: "Yurchenko" }
+              - column: { name: login, value: "admin" }
+              - column: { name: personal_email, value: "mariia@example.com" }
+              - column: { name: birth_date, valueDate: "2000-12-05" }

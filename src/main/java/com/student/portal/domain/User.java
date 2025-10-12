@@ -6,17 +6,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 @Entity
 @Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends BaseEntity{
 
     @Column(length = 24, nullable = false)
     private String password;
@@ -35,12 +31,5 @@ public class User {
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
-
-    @Column(name = "created_on")
-    private LocalDateTime createdOn;
-
-    @Column(name = "last_updated_on")
-    private LocalDateTime lastUpdatedOn;
-
 
 }

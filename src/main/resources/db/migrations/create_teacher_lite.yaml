@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-teacher-table
+      author: vlad
+      changes:
+        - createTable:
+            tableName: teacher
+            columns:
+              - column: { name: degree, type: VARCHAR(50) }
+              - column: { name: title, type: VARCHAR(50) }
+              - column: { name: hire_date, type: DATE }
+      rollback:
+        - dropTable: { tableName: teacher }

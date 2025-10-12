@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-students
+      author: Vlad
+      changes:
+        - insert:
+            tableName: student
+            columns:
+              - column: { name: agreement_number, value: "STU-2025-001" }
+              - column: { name: agreement_signed, valueBoolean: true }
+              - column: { name: enrollment_date, valueDate: "2022-10-01" }
+              - column: { name: graduation_date, valueDate: "2026-06-30" }
+              - column: { name: scholarship, valueBoolean: true }
+              - column: { name: avg_score, valueNumeric: 4.75 }
+              - column: { name: current_semester, valueNumeric: 5 }
+              - column: { name: enrollment_year, valueNumeric: 2022 }
+              - column: { name: enroll_semester, value: "WINTER" }
+              - column: { name: faculty, value: "Informatyka" }
+        - insert:
+            tableName: student
+            columns:
+              - column: { name: agreement_number, value: "STU-2025-002" }
+              - column: { name: agreement_signed, valueBoolean: false }
+              - column: { name: enrollment_date, valueDate: "2023-10-01" }
+              - column: { name: graduation_date, valueDate: "2027-06-30" }
+              - column: { name: scholarship, valueBoolean: false }
+              - column: { name: avg_score, valueNumeric: 3.95 }
+              - column: { name: current_semester, valueNumeric: 3 }
+              - column: { name: enrollment_year, valueNumeric: 2023 }
+              - column: { name: enroll_semester, value: "SUMMER" }
+              - column: { name: faculty, value: "Matematyka stosowana" }
