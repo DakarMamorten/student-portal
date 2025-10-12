@@ -6,12 +6,17 @@ databaseChangeLog:
         - insert:
             tableName: teacher
             columns:
-              - column: { name: degree, value: "Master of Education" }
-              - column: { name: title, value: "Dr hab. inż." }
-              - column: { name: hire_date, valueDate: "2018-09-01" }
+              - column: { name: degree,          value: "PhD" }
+              - column: { name: employmentType,  value: "FULL_TIME" }
+              - column: { name: hire_date,       valueDate: "2018-09-01" }
+              - column: { name: office_number,   value: "B-203" }
+              - column: { name: title,           value: "Professor" }
+
         - insert:
             tableName: teacher
             columns:
-              - column: { name: degree, value: "MSc" }
-              - column: { name: title, value: "Mgr inż." }
-              - column: { name: hire_date, valueDate: "2020-02-15" }
+              - column: { name: degree,          value: "MSc" }
+              - column: { name: employmentType,  value: "PART_TIME" }
+              - column: { name: hire_date,       valueDate: "2020-02-15" }
+              - column: { name: office_number,   value: "C-115" }
+              - column: { name: title,           value: "Lecturer" }

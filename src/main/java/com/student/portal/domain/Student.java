@@ -14,20 +14,26 @@ import java.time.LocalDate;
 @Setter
 public class Student extends User{
 
-    @Column(name = "enrollment_year")
-    private LocalDate enrollmentYear;
+    @Column(name = "agreement_number")
+    private String agreementNumber;
 
-    @Column(name = "enrollment_semester")
-    private LocalDate enrollmentSemester;
+    @Column(name = "agreement_signed")
+    private Boolean agreementSigned;
 
-    @Column(name = "avg_score", precision = 4, scale = 2)
-    private BigDecimal avgScore;
+    @Column(name = "enrollment_date")
+    private LocalDate enrollmentDate;
 
     @Column(name = "graduation_date")
     private LocalDate graduationDate;
 
     @Column(name = "scholarship", nullable = false)
     private boolean scholarship;
+
+    @Column(name = "avg_score", precision = 4, scale = 2)
+    private BigDecimal avgScore;
+
+    @Column(name = "enrollment_year")
+    private LocalDate enrollmentYear;
 
     @Column(name = "current_semester")
     private Integer currentSemester;

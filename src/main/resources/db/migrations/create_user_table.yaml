@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-     id: 3
+     id: create-user-table
      author: Vlad
      preConditions:
        onFail: MARK_RAN
