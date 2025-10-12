@@ -13,7 +13,9 @@ databaseChangeLog:
               - column: { name: scholarship, valueBoolean: true }
               - column: { name: avg_score, valueNumeric: 4.75 }
               - column: { name: current_semester, valueNumeric: 5 }
+              - column: { name: mode_of_study, valueNumeric: 1 }
               - column: { name: enrollment_year, valueNumeric: 2022 }
+              - column: { name: specialization, valueNumeric: 101 }
               - column: { name: enroll_semester, value: "WINTER" }
               - column: { name: faculty, value: "Informatyka" }
         - insert:
@@ -26,6 +28,8 @@ databaseChangeLog:
               - column: { name: scholarship, valueBoolean: false }
               - column: { name: avg_score, valueNumeric: 3.95 }
               - column: { name: current_semester, valueNumeric: 3 }
+              - column: { name: mode_of_study, valueNumeric: 2 }
+              - column: { name: specialization,     valueNumeric: 205 }
               - column: { name: enrollment_year, valueNumeric: 2023 }
               - column: { name: enroll_semester, value: "SUMMER" }
               - column: { name: faculty, value: "Matematyka stosowana" }

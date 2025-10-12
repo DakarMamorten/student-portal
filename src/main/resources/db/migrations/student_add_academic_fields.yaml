@@ -8,13 +8,14 @@ databaseChangeLog:
             columns:
               - column: { name: avg_score, type: "NUMERIC(4,2)" }
               - column: { name: current_semester, type: SMALLINT }
+              - column: { name: mode_of_study, type: SMALLINT }
               - column: { name: enrollment_year, type: SMALLINT }
+              - column: { name: specialization, type: SMALLINT }
               - column: { name: enroll_semester, type: VARCHAR(10) }
               - column: { name: faculty, type: VARCHAR(100) }
       rollback:
         - dropColumn: { tableName: student, columnName: avg_score }
         - dropColumn: { tableName: student, columnName: current_semester }
-        - dropColumn: { tableName: student, columnName: graduation_date }
         - dropColumn: { tableName: student, columnName: enrollment_year }
         - dropColumn: { tableName: student, columnName: enroll_semester }
         - dropColumn: { tableName: student, columnName: faculty }
