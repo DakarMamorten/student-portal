@@ -2,11 +2,16 @@ databaseChangeLog:
   - changeSet:
       id: insert-students
       author: Vlad
+      preConditions:
+        onFail: HALT
+        preConditions:
+          - tableExists: { tableName: users }
+          - tableExists: { tableName: student }
       changes:
         - insert:
             tableName: student
             columns:
-              - column: { name: id, valueComputed: "(SELECT id FROM \"user\" WHERE login = 'student01')" }
+              - column: { name: id, valueComputed: "(SELECT id FROM users WHERE login = 'student01')" }
               - column: { name: agreement_number, value: "STU-2025-001" }
               - column: { name: agreement_signed, valueBoolean: true }
               - column: { name: enrollment_date, valueDate: "2022-10-01" }

@@ -23,4 +23,7 @@ public class Teacher extends User{
 
     @Column(name = "title", length = 50)
     private String title;
+
+    @Column(name = "salary")
+    private Double salary;
 }

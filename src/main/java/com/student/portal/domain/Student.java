@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "student")
@@ -22,10 +23,10 @@ public class Student extends User{
     private Boolean agreementSigned;
 
     @Column(name = "enrollment_date")
-    private Integer enrollmentDate;
+    private LocalDate enrollmentDate;
 
     @Column(name = "graduation_date")
-    private Integer graduationDate;
+    private LocalDate  graduationDate;
 
     @Column(name = "scholarship", nullable = false)
     private boolean scholarship;

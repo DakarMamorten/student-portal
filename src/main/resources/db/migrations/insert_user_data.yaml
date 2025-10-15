@@ -4,7 +4,7 @@ databaseChangeLog:
       author: Vlad
       changes:
         - insert:
-            tableName: user
+            tableName: users
             columns:
               - column: { name: login, value: "student01" }
               - column: { name: password, value: "$2a$10$encodedHash01" }
@@ -14,7 +14,7 @@ databaseChangeLog:
               - column: { name: user_type, value: "STUDENT" }
 
         - insert:
-            tableName: user
+            tableName: users
             columns:
               - column: { name: login, value: "teacher01" }
               - column: { name: password, value: "$2a$10$encodedHash02" }
@@ -24,7 +24,7 @@ databaseChangeLog:
               - column: { name: user_type, value: "TEACHER" }
 
         - insert:
-            tableName: user
+            tableName: users
             columns:
               - column: { name: login, value: "admin01" }
               - column: { name: password, value: "$2a$10$encodedHash03" }
@@ -34,4 +34,4 @@ databaseChangeLog:
               - column: { name: user_type, value: "ADMIN" }
 
       rollback:
-        - delete: { tableName: user, where: "login IN ('student01','teacher01','admin01')" }
+        - delete: { tableName: users, where: "login IN ('student01','teacher01','admin01')" }

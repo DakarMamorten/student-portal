@@ -5,17 +5,17 @@ databaseChangeLog:
       preConditions:
         onFail: HALT
         preConditions:
-          - tableExists: { tableName: user }
+          - tableExists: { tableName: users }
           - tableExists: { tableName: teacher }
       changes:
         - insert:
             tableName: teacher
             columns:
-              - column: { name: id, valueComputed: "(SELECT id FROM \"user\" WHERE login = 'teacher01')" }
+              - column: { name: id, valueComputed: "(SELECT id FROM users WHERE login = 'teacher01')" }
               - column: { name: degree, value: "PhD" }
               - column: { name: title, value: "Professor" }
               - column: { name: hire_date, valueDate: "2018-09-01" }
               - column: { name: salary, valueNumeric: 7500.00 }
 
       rollback:
-        - delete: { tableName: teacher, where: "id = (SELECT id FROM \"user\" WHERE login = 'teacher01')" }
+        - delete: { tableName: teacher, where: "id = (SELECT id FROM users WHERE login = 'teacher01')" }

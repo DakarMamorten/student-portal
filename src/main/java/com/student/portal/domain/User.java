@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 @Getter
@@ -16,7 +16,7 @@ public class User extends BaseEntity{
     @Column(length = 20, nullable = false, unique = true)
     private String login;
 
-    @Column(length = 24, nullable = false)
+    @Column(length = 100, nullable = false)
     private String password;
 
     @Column(name = "first_name", length = 30, nullable = false)

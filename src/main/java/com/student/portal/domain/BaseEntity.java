@@ -19,16 +19,16 @@ public abstract class BaseEntity {
     private LocalDateTime createdOdt;
 
     @Column(name = "last_update_on")
-    private LocalDateTime lastUpdatedOn;
+    private LocalDateTime lastUpdateOn;
 
     @PrePersist
     public void prePersist() {
         this.createdOdt = LocalDateTime.now();
-        this.lastUpdatedOn = LocalDateTime.now();
+        this.lastUpdateOn = LocalDateTime.now();
     }
 
     @PreUpdate
     public void preUpdate() {
-        this.lastUpdatedOn = LocalDateTime.now();
+        this.lastUpdateOn = LocalDateTime.now();
     }
 }
